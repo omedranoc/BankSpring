@@ -1,0 +1,20 @@
+<form name="accountForm" ng-submit="account.deposit($valid)" novalidate>
+
+	<h1>Deposit Form</h1>
+
+	<div class="help-box" ng-show="account.message != null">
+		{{account.message}}</div>
+
+	<div class="input-group">
+		<label for="amount">Amount:</label> <input type="number" name="amount"
+			id="amount" ng-model="account.amount" ng-required="true"
+			ng-pattern="/^[1-9][0-9]*$/">
+		<p class="help-box"
+			ng-show="accountForm.amount.$invalid && !accountForm.amount.$pristine">Amount
+			is required and must be greater than 0</p>
+	</div>
+
+	<button type="submit" class="btn btn-success"
+		ng-disabled="accountForm.amount.$invalid">Deposit</button>
+
+</form>

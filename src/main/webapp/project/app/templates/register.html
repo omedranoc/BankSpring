@@ -1,0 +1,32 @@
+
+<div class="row">
+	<form name="userForm" ng-submit="register.doRegister(userForm.$valid)"
+		novalidate>
+		<div class="col-xs-6 col-md-6 col-md-offset-3">
+			<h1>User Registration</h1>
+			<div class="help-block" ng-show="register.message != null">{{register.message}}</div>
+
+			<div class="input-group">
+				<label for="username">Username:</label> <input type="text"
+					name="username" class="form-control" id="username"
+					ng-model="register.user.username" ng-required="true">
+				<p
+					ng-show="userForm.username.$invalid && !userForm.username.$pristine"
+					class="help-block">Username is required.</p>
+			</div>
+
+			<div class="input-group">
+				<label for="password">Password:</label> <input type="password"
+					name="password" class="form-control" id="password"
+					ng-model="register.user.password" ng-required="true">
+				<p
+					ng-show="userForm.password.$invalid && !userForm.password.$pristine"
+					class="help-block">Password is required.</p>
+			</div>
+
+			<button type="submit" class="btn btn-primary"
+				ng-disabled="userForm.$invalid">Submit</button>
+
+		</div>
+	</form>
+</div>
